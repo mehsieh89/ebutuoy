@@ -57,6 +57,11 @@ const startServer = () =>
     });
   });
 
+app.get('/test', function(req, res) {
+  console.log('server url hit');
+  res.send("omg....")
+})
+
 module.exports = function electrodeServer(userConfig, callback) {
   const promise = Promise.resolve(userConfig)
     .then(loadConfigs)
