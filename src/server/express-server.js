@@ -58,15 +58,14 @@ const startServer = () =>
     });
   });
 
-
-app.get('/test', function(req, res) {
-  console.log('server url hit');
-  db.find({}, function(err, data) {
-   if (err) throw err;
-   res.send(data);
-   res.end();
- })
-})
+// app.get('/test', function(req, res) {
+//   console.log('server url hit');
+//   db.find({}, function(err, data) {
+//    if (err) throw err;
+//    res.send(data);
+//    res.end();
+//  })
+// })
 
 module.exports = function electrodeServer(userConfig, callback) {
   const promise = Promise.resolve(userConfig)
