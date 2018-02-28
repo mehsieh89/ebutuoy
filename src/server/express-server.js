@@ -3,7 +3,7 @@
 const Promise = require("bluebird");
 const express = require("express");
 const app = express();
-// const Ebutuoy = require('../db/index.js');
+const Ebutuoy = require('../db');
 const path = require("path");
 const _ = require("lodash");
 const defaultConfig = require("electrode-confippet").config;
