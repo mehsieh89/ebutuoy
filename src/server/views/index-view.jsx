@@ -11,7 +11,7 @@ const Promise = require("bluebird");
 
 function createReduxStore(req, match) { // eslint-disable-line
   const initialState = {
-    name: "Mel Hsieh from Server"
+    app: {name: "ebutuoy"},
   };
 
   const store = createStore(rootReducer, initialState);

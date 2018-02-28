@@ -14,6 +14,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.handleOnClick = this.handleOnClick.bind(this);
+    this.handleOnClick2 = this.handleOnClick2.bind(this);
   }
 
   handleOnClick() {
@@ -28,30 +29,46 @@ class Home extends Component {
     });
   }
 
+  handleOnClick2() {
+    const { changeName } = this.props;
+    changeName('dkjawbdjhadjhavda');
+    // this.props.changeName('wdablhbda');
+    // setTimeout(function() {
+    //   console.log('onclick 2' + this.props.name);
+    // }, 3000);
+  }
+
   render() {
+    console.log('render ' + Object.keys(this.props));
+    console.log('render2 ' + this.props.name);
     return (
       <div>
-        <div onClick={this.handleOnClick}>{this.props.name}</div>
+        <div onClick={this.handleOnClick}> {this.props.name} </div>
+        <div onClick={this.handleOnClick2}> click </div>
       </div>
     );
   }
 }
 
   // export default About;
-  Home.propTypes = {
-    name: PropTypes.string,
-  };
+Home.propTypes = {
+  name: PropTypes.string,
+  // dispatch: PropTypes.func.isRequired
+};
 
-  const mapStateToProps = state => {
-    return {
-      name: state.name,
-    };
+const mapStateToProps = state => {
+  console.log('state ' + Object.keys(state));
+  return {
+    name: state.app.name,
   };
+};
 
-  const matchDispatchToProps = (dispatch) => {
+const matchDispatchToProps = (dispatch) => {
   return bindActionCreators({
     changeName: changeName,
   }, dispatch);
 };
 
   export default connect(mapStateToProps, matchDispatchToProps)(Home);
+
+  // export default connect(mapStateToProps, dispatch => ({ dispatch }))(Home);
