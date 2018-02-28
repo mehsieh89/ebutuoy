@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const config = require('../../config/index.js');
+const DATABASE_URL = config.DATABASE_URL;
 mongoose.connect('mongodb://localhost/test');
 
 var db = mongoose.connection;
