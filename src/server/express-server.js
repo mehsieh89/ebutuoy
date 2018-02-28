@@ -1,9 +1,9 @@
 "use strict";
 
-const db = require('../db');
 const Promise = require("bluebird");
 const express = require("express");
 const app = express();
+const db = require('../db');
 const path = require("path");
 const _ = require("lodash");
 const defaultConfig = require("electrode-confippet").config;
@@ -57,6 +57,7 @@ const startServer = () =>
       }
     });
   });
+
 
 app.get('/test', function(req, res) {
   console.log('server url hit');
