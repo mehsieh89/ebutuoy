@@ -30,7 +30,6 @@ const setStaticPaths = function() {
   );
 };
 
-
 const setRouteHandler = () =>
   new Promise((resolve, reject) => {
     const webapp = p => (p.startsWith(".") ? path.resolve(p) : p);
