@@ -20,6 +20,8 @@ _book
 *.mobi
 *.pdf
 
+# Config files
+config/config.dev.js
 
 ### Node ###
 # Logs

@@ -12,10 +12,6 @@ import {combineReducers} from "redux";
 // };
 
 const app = (store, action) => {
-  console.log('store in reducer1 ' +  store);
-  if (typeof(store) === "object") {
-    console.log("store in reducer " + Object.keys(store));
-  }
   switch (action.type) {
 
   case 'CHANGE_NAME' :
@@ -24,7 +20,7 @@ const app = (store, action) => {
    return newState;
 
   default:
-    return store || {name: "default"};
+    return store || { name: "default" };
   }
 };
 

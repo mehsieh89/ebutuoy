@@ -20,7 +20,6 @@ import rootReducer from "./reducers";
 window.webappStart = () => {
   const initialState = window.__PRELOADED_STATE__;
   const store = createStore(rootReducer, initialState);
-  console.log(store.getState());
   render(
     <Provider store={store}>
       <Router history={browserHistory}>{routes}</Router>

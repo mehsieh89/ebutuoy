@@ -19,7 +19,6 @@ class Home extends Component {
 
   handleOnClick() {
     // this.props.toggleAboutDialog();
-    console.log('click worked');
     axios.get('/test')
     .then((res) => {
       console.log(res.data);
@@ -32,15 +31,9 @@ class Home extends Component {
   handleOnClick2() {
     const { changeName } = this.props;
     changeName('dkjawbdjhadjhavda');
-    // this.props.changeName('wdablhbda');
-    // setTimeout(function() {
-    //   console.log('onclick 2' + this.props.name);
-    // }, 3000);
   }
 
   render() {
-    console.log('render ' + Object.keys(this.props));
-    console.log('render2 ' + this.props.name);
     return (
       <div>
         <div onClick={this.handleOnClick}> {this.props.name} </div>
@@ -57,7 +50,6 @@ Home.propTypes = {
 };
 
 const mapStateToProps = state => {
-  console.log('state ' + Object.keys(state));
   return {
     name: state.app.name,
   };
