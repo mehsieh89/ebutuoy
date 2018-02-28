@@ -63,6 +63,7 @@ app.get('/test', function(req, res) {
   Ebutuoy.find({}, function(err, data) {
    if (err) throw err;
    res.send(data);
+   res.end();
  })
 })
 
