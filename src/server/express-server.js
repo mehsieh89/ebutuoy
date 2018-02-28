@@ -3,7 +3,6 @@
 const Promise = require("bluebird");
 const express = require("express");
 const app = express();
-const Ebutuoy = require('../db');
 const path = require("path");
 const _ = require("lodash");
 const defaultConfig = require("electrode-confippet").config;
@@ -57,15 +56,17 @@ const startServer = () =>
       }
     });
   });
+  
+const db = require('../db');
 
-// app.get('/test', function(req, res) {
-//   console.log('server url hit');
-//   Ebutuoy.find({}, function(err, data) {
-//    if (err) throw err;
-//    res.send(data);
-//    res.end();
-//  })
-// })
+app.get('/test', function(req, res) {
+  console.log('server url hit');
+  db.find({}, function(err, data) {
+   if (err) throw err;
+   res.send(data);
+   res.end();
+ })
+})
 
 module.exports = function electrodeServer(userConfig, callback) {
   const promise = Promise.resolve(userConfig)
