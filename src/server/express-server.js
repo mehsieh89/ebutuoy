@@ -7,7 +7,7 @@ const path = require("path");
 const _ = require("lodash");
 const defaultConfig = require("electrode-confippet").config;
 const Confippet = require("electrode-confippet");
-const Ebutuoy = require("../db");
+const Ebutuoy = require("../db/index.js");
 
 const loadConfigs = function(userConfig) {
   //use confippet to merge user config and default config
