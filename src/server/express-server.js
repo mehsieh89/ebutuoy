@@ -1,7 +1,18 @@
 "use strict";
+const setStaticPaths = function() {
+  app.use(
+    express.static(
+      path.join(
+        __dirname,
+        "../..",
+        defaultConfig.$("plugins.electrodeStaticPaths.options.pathPrefix")
+      )
+    )
+  );
 
 const Promise = require("bluebird");
 const express = require("express");
+const db = require('../db');
 const app = express();
 const path = require("path");
 const _ = require("lodash");
@@ -17,16 +28,6 @@ const loadConfigs = function(userConfig) {
   return Confippet.util.merge(defaultConfig, userConfig);
 };
 
-const setStaticPaths = function() {
-  app.use(
-    express.static(
-      path.join(
-        __dirname,
-        "../..",
-        defaultConfig.$("plugins.electrodeStaticPaths.options.pathPrefix")
-      )
-    )
-  );
 };
 
 const setRouteHandler = () =>
@@ -57,16 +58,15 @@ const startServer = () =>
     });
   });
 
-const db = require('../db');
 
-// app.get('/test', function(req, res) {
-//   console.log('server url hit');
-//   db.find({}, function(err, data) {
-//    if (err) throw err;
-//    res.send(data);
-//    res.end();
-//  })
-// })
+app.get('/test', function(req, res) {
+  console.log('server url hit');
+  db.find({}, function(err, data) {
+   if (err) throw err;
+   res.send(data);
+   res.end();
+ })
+})
 
 module.exports = function electrodeServer(userConfig, callback) {
   const promise = Promise.resolve(userConfig)
