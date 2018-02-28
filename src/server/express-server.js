@@ -1,18 +1,7 @@
 "use strict";
-const setStaticPaths = function() {
-  app.use(
-    express.static(
-      path.join(
-        __dirname,
-        "../..",
-        defaultConfig.$("plugins.electrodeStaticPaths.options.pathPrefix")
-      )
-    )
-  );
 
 const Promise = require("bluebird");
 const express = require("express");
-const db = require('../db');
 const app = express();
 const path = require("path");
 const _ = require("lodash");
@@ -28,7 +17,19 @@ const loadConfigs = function(userConfig) {
   return Confippet.util.merge(defaultConfig, userConfig);
 };
 
+const setStaticPaths = function() {
+  app.use(
+    express.static(
+      path.join(
+        __dirname,
+        "../..",
+        defaultConfig.$("plugins.electrodeStaticPaths.options.pathPrefix")
+      )
+    )
+  );
 };
+
+const db = require('../db');
 
 const setRouteHandler = () =>
   new Promise((resolve, reject) => {
