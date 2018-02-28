@@ -46,19 +46,24 @@ const setRouteHandler = () =>
     });
   });
 
-const startServer = () =>
-  new Promise((resolve, reject) => {
-    app.listen(defaultConfig.$("connections.default.port"), err => {
-      if (err) {
-        reject(err);
-      } else {
-        //eslint-disable-next-line
-        console.log(`App listening on port: ${defaultConfig.$("connections.default.port")}`);
-        resolve();
-      }
-    });
-  });
+// const startServer = () =>
+//   new Promise((resolve, reject) => {
+//     app.listen(defaultConfig.$("connections.default.port"), err => {
+//       if (err) {
+//         reject(err);
+//       } else {
+//         //eslint-disable-next-line
+//         console.log(`App listening on port: ${defaultConfig.$("connections.default.port")}`);
+//         resolve();
+//       }
+//     });
+//   });
 
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log('server listening on port: ', PORT);
+});
 
 app.get('/test', function(req, res) {
   console.log('server url hit');
@@ -74,7 +79,7 @@ module.exports = function electrodeServer(userConfig, callback) {
     .then(loadConfigs)
     .then(setStaticPaths)
     .then(setRouteHandler)
-    .then(startServer);
+    // .then(startServer);
 
   return callback ? promise.nodeify(callback) : promise;
 };
