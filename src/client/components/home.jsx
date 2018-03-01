@@ -3,16 +3,21 @@ import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { changeName } from "../actions";
+// import SearchBar from 'material-ui-search-bar';
+import SearchBarContainer from '../containers/searchBarContainer.jsx';
 import axios from 'axios';
 import "../styles/normalize.css";
 import "../styles/raleway.css";
 import skeleton from "../styles/skeleton.css";
 import custom from "../styles/custom.css";
-import electrodePng from "../images/electrode.png";
+// import electrodePng from "../images/electrode.png";
 
 class Home extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      value: "",
+    }
     this.handleOnClick = this.handleOnClick.bind(this);
     this.handleOnClick2 = this.handleOnClick2.bind(this);
   }
@@ -33,11 +38,12 @@ class Home extends Component {
     changeName('dkjawbdjhadjhavda');
   }
 
+  handleOnChange(e) { this.setState({ title: e.target.value }); }
+
   render() {
     return (
-      <div>
-        <div onClick={this.handleOnClick}> {this.props.name} </div>
-        <div onClick={this.handleOnClick2}> click </div>
+      <div className={custom.searchDiv}>
+        <SearchBarContainer/>
       </div>
     );
   }

@@ -36,6 +36,13 @@
   letter-spacing: normal;
 }
 
+.searchDiv {
+  text-align: center;
+}
+
+.searchBar {
+}
+
 /* Larger than phone */
 @media (min-width: 550px) {
   .header {
