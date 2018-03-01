@@ -38,6 +38,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bluebird": "^3.4.6",
+    "body-parser": "^1.18.2",
     "electrode-archetype-react-app": "^5.0.0",
     "electrode-confippet": "^1.0.0",
     "electrode-react-webapp": "^2.1.0",

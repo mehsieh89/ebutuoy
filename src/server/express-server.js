@@ -3,11 +3,20 @@
 const Promise = require("bluebird");
 const express = require("express");
 const app = express();
+const bodyParser = require('body-parser');
 const path = require("path");
 const _ = require("lodash");
 const defaultConfig = require("electrode-confippet").config;
 const Confippet = require("electrode-confippet");
 const Ebutuoy = require("../db/index.js");
+import axios from 'axios';
+const config = require('../../config/index.js');
+
+app.use(bodyParser.json());
+
+const YOUTUBE_API_KEY = config.YOUTUBE_API_KEY;
+const YOUTUBE_BASE_URL_1 = "https://www.googleapis.com/youtube/v3/search?part=snippet&q="
+const YOUTUBE_BASE_URL_2 = ("&type=video&order=viewCount&key=" + YOUTUBE_API_KEY);
 
 const loadConfigs = function(userConfig) {
   //use confippet to merge user config and default config
@@ -58,13 +67,26 @@ const startServer = () =>
     });
   });
 
-app.get('/test', function(req, res) {
+app.get('/test', (req, res) => {
   console.log('server url hit');
   Ebutuoy.find({}, function(err, data) {
    if (err) throw err;
    res.send(data);
    res.end();
  })
+})
+
+app.post('/search', (req, res) => {
+  console.log("sent data " + req.body.value);
+  axios.get(YOUTUBE_BASE_URL_1 + req.body.value + YOUTUBE_BASE_URL_2)
+  .then((data) => {
+    console.log(data.data.items);
+  res.send(data.data.items);
+  res.end();
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 })
 
 module.exports = function electrodeServer(userConfig, callback) {

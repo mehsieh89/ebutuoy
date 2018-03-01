@@ -21,7 +21,6 @@ _book
 *.pdf
 
 # Config files
-config/config.dev.js
 
 ### Node ###
 # Logs

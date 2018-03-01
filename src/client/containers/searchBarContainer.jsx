@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import custom from "../styles/custom.css";
 
 class Search extends Component {
@@ -15,9 +16,12 @@ class Search extends Component {
 
   handleSearch(e) {
     e.preventDefault();
-    axios.get('/search')
+    let options = {
+      value: this.state.value,
+    };
+    axios.post('/search', options)
     .then((res) => {
-      console.log(res.data);
+      console.log('back on front end ' + res.data);
     })
     .catch((err) => {
       console.log(err);
