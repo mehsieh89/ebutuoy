@@ -47,12 +47,4 @@ class Search extends Component {
   }
 }
 
-// const styles = {
-//   search: {
-//     position: 'relative',
-//     marginLeft: 'auto',
-//     marginRight: 'auto',
-//   }
-// }
-
 export default Search;

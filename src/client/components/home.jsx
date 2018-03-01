@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { changeName } from "../actions";
 // import SearchBar from 'material-ui-search-bar';
 import SearchBarContainer from '../containers/searchBarContainer.jsx';
+import VideoPlayerContainer from '../containers/videoPlayerContainer.jsx';
 import axios from 'axios';
 import "../styles/normalize.css";
 import "../styles/raleway.css";
@@ -44,6 +45,7 @@ class Home extends Component {
     return (
       <div className={custom.searchDiv}>
         <SearchBarContainer/>
+        <VideoPlayerContainer/>
       </div>
     );
   }
