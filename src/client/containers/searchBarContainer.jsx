@@ -29,7 +29,7 @@ class Search extends Component {
       // console.log(res.data[0].snippet.description);
       this.props.importVideos(res.data);
       videoArray.splice(0, 1);
-      this.props.importListVideos(videoArray);
+      this.props.changeSkipIndex(0);
       this.props.changeMainVideo(0);
     })
     .then(() => {

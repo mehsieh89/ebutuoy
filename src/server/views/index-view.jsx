@@ -14,7 +14,7 @@ function createReduxStore(req, match) { // eslint-disable-line
     app: {name: "ebutuoy"},
     video: {
       current: [],
-      listVideos: [],
+      skipIndex: 0,
       searched: false,
       mainVideo: 0,
     },

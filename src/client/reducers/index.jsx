@@ -32,9 +32,9 @@ const video = (store, action) => {
     newState3.current = action.payload;
     return newState3;
 
-  case 'IMPORT_LIST_VIDEOS' :
+  case 'SKIP_RENDER_INDEX' :
     let newState5 = Object.assign({}, store);
-    newState5.listVideos = action.payload;
+    newState5.skipIndex = action.payload;
     return newState5;
 
   case 'TOGGLE_SEARCH_RESULTS' :
@@ -48,7 +48,7 @@ const video = (store, action) => {
     return newState4;
 
   default:
-    return store || { current: [], listVideos:[], searched: false, mainVideo: 0 };
+    return store || { current: [], skipIndex: 0, searched: false, mainVideo: 0 };
   }
 };
 

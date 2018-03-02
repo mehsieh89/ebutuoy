@@ -12,10 +12,10 @@ export const importVideos = (array) => {
   };
 };
 
-export const importListVideos = (array) => {
+export const changeSkipIndex = (index) => {
   return {
-    type: "IMPORT_LIST_VIDEOS",
-    payload: array
+    type: "SKIP_RENDER_INDEX",
+    payload: index
   };
 };
 

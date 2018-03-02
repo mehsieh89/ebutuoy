@@ -7,15 +7,19 @@ class VideoListEntry extends Component {
     super(props);
     this.state = {
     };
+    this.handleOnClick = this.handleOnClick.bind(this);
+  }
+
+  handleOnClick(e) {
+    this.props.onClick(this.props.index);
   }
 
   render() {
-    console.log(this.props.video)
     const video = this.props.video;
     return (
       <div>
-        <img src={video.snippet.thumbnails.default.url} alt=""/>
-        <div> {video.snippet.title} </div>
+        <div onClick={this.handleOnClick}> {video.snippet.title} </div>
+        <img onClick={this.handleOnClick} src={video.snippet.thumbnails.default.url} alt=""/>
       </div>
     );
   }
