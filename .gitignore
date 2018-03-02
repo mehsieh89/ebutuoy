@@ -152,7 +152,6 @@ Temporary Items
 
 # Build
 dist
-Procfile
 config/assets.json
 npm-shrinkwrap.json
 
