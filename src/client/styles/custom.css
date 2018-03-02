@@ -40,7 +40,21 @@
   text-align: center;
 }
 
-.searchBar {
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.videoList {
+  height: 100%;
+  width: 400px;
+}
+
+.videoPlayer {
+  height: 100%;
+  width: 700px;
 }
 
 /* Larger than phone */

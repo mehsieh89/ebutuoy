@@ -50,26 +50,35 @@ class Home extends Component {
   handleOnChange(e) { this.setState({ title: e.target.value }); }
 
   render() {
-    let results = null;
+    let list = null;
+    let player = null;
     if (this.props.searched) {
-      results = <VideoListContainer
-        // addVideos={this.addVideos}
-        videos={this.props.videos}
-        searched={this.props.searched}
-        toggleSearchResults={this.props.toggleSearchResults}
-        importVideos={this.props.importVideos}
-      />;
+        player = <VideoPlayerContainer
+          {...this.props}
+        />
+        list = <VideoListContainer
+          {...this.props}
+          // addVideos={this.addVideos}
+          // videos={this.props.videos}
+          // searched={this.props.searched}
+          // toggleSearchResults={this.props.toggleSearchResults}
+          // importVideos={this.props.importVideos}
+        />;
     }
     return (
       <div className={custom.searchDiv}>
         <SearchBarContainer
+          {...this.props}
           // addVideos={this.addVideos}
-          videos={this.props.videos}
-          searched={this.props.searched}
-          toggleSearchResults={this.props.toggleSearchResults}
-          importVideos={this.props.importVideos}
+          // videos={this.props.videos}
+          // searched={this.props.searched}
+          // toggleSearchResults={this.props.toggleSearchResults}
+          // importVideos={this.props.importVideos}
         />
-        {results}
+        <div className={custom.mainContainer}>
+          {player}
+          {list}
+        </div>
       </div>
     );
   }

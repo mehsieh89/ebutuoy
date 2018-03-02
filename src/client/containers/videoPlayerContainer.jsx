@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import custom from "../styles/custom.css";
+import VideoPlayer from '../components/videoPlayer.jsx';
 
 class VideoPlayerContainer extends Component {
   constructor(props) {
@@ -10,8 +11,12 @@ class VideoPlayerContainer extends Component {
   }
 
   render() {
+    console.log(this.props.videos)
     return (
-      <div>hi</div>
+      <VideoPlayer
+        {...this.props}
+        video={this.props.videos[0]}
+      />
     );
   }
 }

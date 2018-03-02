@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import VideoListEntry from '../components/videoListEntry.jsx';
 import custom from "../styles/custom.css";
 
 class VideoListContainer extends Component {
@@ -11,14 +12,13 @@ class VideoListContainer extends Component {
 
   render() {
     const test = this.props.videos.map(function(item, index) {
-      return <div key={index}>{index}</div>
+      return <VideoListEntry key={index} index={index} video={item}/>
     })
 
     if (this.props.searched) {
       return (
-        <div>
+        <div className={custom.videoList}>
           {test}
-          <div>hi</div>
         </div>
       );
     } else {
