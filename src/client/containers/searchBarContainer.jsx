@@ -33,12 +33,20 @@ class Search extends Component {
       .then((data) => {
         this.props.changeMainVideoInfo(data.data);
       })
+      axios.post('./videoComments', options)
+      .then((resp) => {
+        this.props.importComments(resp.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     })
     .then(() => {
       this.props.changeMainVideo(0);
     })
     .then(() => {
       toggleSearchResults(true);
+      console.log(this.props.comments);
     })
     .catch((err) => {
       console.log(err);

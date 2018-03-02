@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { changeName, importVideos, toggleSearchResults, changeMainVideo,
-        changeSkipIndex, changeMainVideoInfo } from "../actions";
+        changeSkipIndex, changeMainVideoInfo, importComments } from "../actions";
 // import SearchBar from 'material-ui-search-bar';
 import SearchBarContainer from '../containers/searchBarContainer.jsx';
 import VideoPlayerContainer from '../containers/videoPlayerContainer.jsx';
@@ -20,7 +20,6 @@ class Home extends Component {
     super(props);
     this.state = {
       value: "",
-      videos: [],
     }
     this.handleOnClick = this.handleOnClick.bind(this);
     this.handleOnClick2 = this.handleOnClick2.bind(this);
@@ -98,6 +97,7 @@ const mapStateToProps = state => {
     searched: state.video.searched,
     mainVideo: state.video.mainVideo,
     mainVideoInfo: state.video.mainVideoInfo,
+    comments: state.video.comments,
   };
 };
 
@@ -109,6 +109,7 @@ const matchDispatchToProps = (dispatch) => {
     toggleSearchResults: toggleSearchResults,
     changeMainVideo: changeMainVideo,
     changeMainVideoInfo: changeMainVideoInfo,
+    importComments: importComments,
   }, dispatch);
 };
 

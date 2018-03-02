@@ -15,9 +15,12 @@ const config = require('../../config/index.js');
 app.use(bodyParser.json());
 
 const YOUTUBE_API_KEY = "&key=" + config.YOUTUBE_API_KEY;
-const YOUTUBE_SEARCH_URL_1 = "https://www.googleapis.com/youtube/v3/search?part=snippet&q="
+const YOUTUBE_BASE_URL = "https://www.googleapis.com/youtube/v3/"
+const YOUTUBE_SEARCH_URL_1 = "search?part=snippet&q=";
 const YOUTUBE_SEARCH_URL_2 = ("&type=video&order=viewCount" + YOUTUBE_API_KEY);
-const YOUTUBE_INFO_URL_1 = "https://www.googleapis.com/youtube/v3/videos?part=statistics&id="
+const YOUTUBE_INFO_URL = "videos?part=statistics&id=";
+const YOUTUBE_COMMENTS_URL = "commentThreads?key=";
+const YOUTUBE_COMMENTS_URL_2 = "&textFormat=plainText&part=snippet&maxResults=10&videoId=";
 
 const loadConfigs = function(userConfig) {
   //use confippet to merge user config and default config
@@ -78,7 +81,7 @@ app.get('/test', (req, res) => {
 })
 
 app.post('/search', (req, res) => {
-  axios.get(YOUTUBE_SEARCH_URL_1 + req.body.value + YOUTUBE_SEARCH_URL_2)
+  axios.get(YOUTUBE_BASE_URL + YOUTUBE_SEARCH_URL_1 + req.body.value + YOUTUBE_SEARCH_URL_2)
   .then((data) => {
     res.send(data.data.items);
     res.end();
@@ -89,13 +92,28 @@ app.post('/search', (req, res) => {
 })
 
 app.post('/videoInfo', (req, res) => {
-  axios.get(YOUTUBE_INFO_URL_1 + req.body.id + YOUTUBE_API_KEY)
+  axios.get(YOUTUBE_BASE_URL+ YOUTUBE_INFO_URL + req.body.id + YOUTUBE_API_KEY)
   .then((data) => {
     let count = {
       likes: data.data.items[0].statistics.likeCount,
       dislikes: data.data.items[0].statistics.dislikeCount
     }
     res.send(count);
+    res.end();
+  })
+})
+
+app.post('/videoComments', (req, res) => {
+  axios.get(YOUTUBE_BASE_URL + YOUTUBE_COMMENTS_URL + config.YOUTUBE_API_KEY + YOUTUBE_COMMENTS_URL_2 + req.body.id)
+  .then((data) => {
+    let comments = data.data.items.map(function(item) {
+      let options = {
+        user: item.snippet.topLevelComment.snippet.authorDisplayName,
+        text: item.snippet.topLevelComment.snippet.textDisplay
+      }
+      return options;
+    });
+    res.send(comments);
     res.end();
   })
 })

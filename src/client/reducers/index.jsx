@@ -1,16 +1,5 @@
 import {combineReducers} from "redux";
 
-// const name = (store, action) => {
-//   console.log('store: ' + store);
-//   if (action.type === "CHANGE_NAME") {
-//     return {
-//       name: action.payload
-//     };
-//   }
-//
-//   return store || {name: "default store"};
-// };
-
 const app = (store, action) => {
   switch (action.type) {
 
@@ -52,6 +41,11 @@ const video = (store, action) => {
     newState6.mainVideoInfo = action.payload;
     return newState6;
 
+  case 'IMPORT_COMMENTS' :
+    let newState7 = Object.assign({}, store);
+    newState7.comments = action.payload;
+    return newState7;
+
   default:
     return store || {
       current: [],
@@ -62,6 +56,7 @@ const video = (store, action) => {
         likes: 0,
         dislikes: 0
       },
+      comments: [{user:"", text: ""}],
     };
   }
 };

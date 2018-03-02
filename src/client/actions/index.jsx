@@ -39,3 +39,10 @@ export const changeMainVideoInfo = (obj) => {
     payload: obj
   };
 }
+
+export const importComments = (array) => {
+  return {
+    type: "IMPORT_COMMENTS",
+    payload: array
+  };
+}

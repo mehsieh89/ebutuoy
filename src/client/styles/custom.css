@@ -39,6 +39,7 @@
 .iframe {
   width: 640px;
   height: 385px;
+  border: 2px solid black;
 }
 
 .searchDiv {
@@ -48,20 +49,23 @@
 .mainContainer {
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
+  position: relative;
+  right: 100px;
+}
+
+.mainPlayerInfo {
+  border: 2px solid black;
+  margin-top: 25px;
 }
 
 .videoList {
   position: relative;
   left: 100px;
   height: 100%;
-  width: 300px;
-}
-
-.videoPlayer {
-  height: 100%;
-  width: 700px;
+  width: 200px;
+  border: 2px solid black;
 }
 
 /* Larger than phone */

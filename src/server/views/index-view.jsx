@@ -21,6 +21,7 @@ function createReduxStore(req, match) { // eslint-disable-line
         likes: 0,
         dislikes: 0
       },
+      comments: [{user:"", text: ""}],
     },
   };
 
