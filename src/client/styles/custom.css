@@ -36,6 +36,11 @@
   letter-spacing: normal;
 }
 
+.iframe {
+  width: 640px;
+  height: 385px;
+}
+
 .searchDiv {
   text-align: center;
 }
@@ -48,8 +53,10 @@
 }
 
 .videoList {
+  position: relative;
+  left: 100px;
   height: 100%;
-  width: 400px;
+  width: 300px;
 }
 
 .videoPlayer {

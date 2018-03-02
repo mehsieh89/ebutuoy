@@ -14,7 +14,7 @@ class VideoPlayer extends Component {
     return (
       <div className={custom.videoPlayer}>
         <div> {video.snippet.title} </div>
-        <iframe src={'https://www.youtube.com/embed/' + video.id.videoId} allowFullScreen></iframe>
+        <iframe className={custom.iframe} src={'https://www.youtube.com/embed/' + video.id.videoId} allowFullScreen></iframe>
       </div>
     );
   }
