@@ -16,12 +16,20 @@ class Search extends Component {
 
   handleSearch(e) {
     e.preventDefault();
+    const { importVideos, toggleSearchResults } = this.props;
     let options = {
       value: this.state.value,
     };
     axios.post('/search', options)
     .then((res) => {
-      console.log('back on front end ' + res.data);
+      // console.log('back on front end ');
+      // console.log(res.data[0].id.videoId);
+      // console.log(res.data[0].snippet.thumbnails.default.url);
+      // console.log(res.data[0].snippet.description);
+      this.props.importVideos(res.data);
+    })
+    .then(() => {
+      toggleSearchResults(true);
     })
     .catch((err) => {
       console.log(err);

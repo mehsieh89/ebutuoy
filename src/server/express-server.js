@@ -77,12 +77,10 @@ app.get('/test', (req, res) => {
 })
 
 app.post('/search', (req, res) => {
-  console.log("sent data " + req.body.value);
   axios.get(YOUTUBE_BASE_URL_1 + req.body.value + YOUTUBE_BASE_URL_2)
   .then((data) => {
-    console.log(data.data.items);
-  res.send(data.data.items);
-  res.end();
+    res.send(data.data.items);
+    res.end();
   })
   .catch((err) => {
     console.log(err);

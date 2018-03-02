@@ -24,6 +24,24 @@ const app = (store, action) => {
   }
 };
 
+const video = (store, action) => {
+  switch (action.type) {
+
+  case 'IMPORT_VIDEOS' :
+    let newState3 = Object.assign({}, store);
+    newState3.current = action.payload;
+    return newState3;
+
+  case 'TOGGLE_SEARCH_RESULTS' :
+    let newState2 = Object.assign({}, store);
+    newState2.searched = action.payload;
+    return newState2;
+
+  default:
+    return store || { current: [], searched: false };
+  }
+};
+
 export default combineReducers({
-  app,
+  app, video
 });
