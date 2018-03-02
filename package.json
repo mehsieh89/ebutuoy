@@ -46,7 +46,8 @@
     "express": "^4.0.0",
     "lodash": "^4.10.1",
     "mongodb": "^3.0.3",
-    "mongoose": "^5.0.7"
+    "mongoose": "^5.0.7",
+    "xclap": "^0.2.21"
   },
   "devDependencies": {
     "electrode-archetype-react-app-dev": "^5.0.0"
