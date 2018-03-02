@@ -1,1 +1,1 @@
-web: node express-server.js
+web: node src/server/express-server.js
