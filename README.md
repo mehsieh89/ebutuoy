@@ -1,7 +1,7 @@
-Clone
+clone
 
 
-install
+install dependencies
 
 
-clap dev
+clap dev to run the app on localhost
