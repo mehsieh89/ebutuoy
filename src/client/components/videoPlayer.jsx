@@ -18,10 +18,10 @@ class VideoPlayer extends Component {
       <div className={custom.mainPLayer}>
         <iframe className={custom.iframe} src={'https://www.youtube.com/embed/' + video.id.videoId} allowFullScreen></iframe>
         <div className={custom.mainPlayerInfo}>
-          <div> {video.snippet.title} </div>
+          <div className={custom.mainVideoTitle}> {video.snippet.title} </div>
           <div> {video.snippet.description} </div>
-          <div> likes: {mainVideoInfo.likes} </div>
-          <div> dislikes: {mainVideoInfo.dislikes} </div>
+          <div className={custom.likes}> likes: {mainVideoInfo.likes} </div>
+          <div className={custom.dislikes}> dislikes: {mainVideoInfo.dislikes} </div>
         </div>
         <CommentsContainer
           {...this.props}

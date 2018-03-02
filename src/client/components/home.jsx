@@ -78,7 +78,9 @@ class Home extends Component {
     return (
       <div>
         <header className={custom.appHeader}>
-          Ebutuoy
+          <div className={custom.headerText}>
+            Ebutuoy
+          </div>
         </header>
         <div className={custom.searchDiv}>
           <SearchBarContainer

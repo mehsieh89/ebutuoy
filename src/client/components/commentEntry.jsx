@@ -13,7 +13,7 @@ class CommentEntry extends Component {
     let commentObj = this.props.moreProps.comments[this.props.index];
     return (
       <div className={custom.commentBox}>
-        <div> {commentObj.user}</div>
+        <div className={custom.commentUser}> {commentObj.user}</div>
         <div> {commentObj.text}</div>
       </div>
     );

@@ -37,14 +37,18 @@
   letter-spacing: normal;
 }
 
+.headerText {
+  position: relative;
+  top: 20px;
+}
+
 .appHeader {
-  font-family: "HelveticaNeue";
   background-color: #C7D8C6;
   height: 100px;
   color: white;
   text-align: center;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .commentBox {
@@ -52,6 +56,11 @@
   margin-top: 5px;
   border: 2px solid black;
   text-align: left;
+}
+
+.commentUser {
+  font-weight: bold;
+  front-size: 14px;
 }
 
 .iframe {
@@ -62,6 +71,17 @@
 
 .searchDiv {
   text-align: center;
+  margin-top: 20px;
+}
+
+.likes {
+  font-weight: bold;
+  color: blue;
+}
+
+.dislikes {
+  font-weight: bold;
+  color: red;
 }
 
 .mainContainer {
@@ -76,15 +96,30 @@
 .mainPlayerInfo {
   text-align: left;
   border: 2px solid black;
-  margin-top: 25px;
+  margin-top: 15px;
+}
+
+.mainVideoTitle {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .videoList {
   position: relative;
   left: 100px;
   height: 100%;
-  width: 200px;
-  border: 2px solid black;
+  width: 250px;
+}
+
+.videoListEntry {
+  margin-bottom: 25px;
+  border: 1px solid black;
+  cursor: pointer;
+  front-weight: bold;
+}
+
+.videoListEntryTitle {
+  font-weight: bold;
 }
 
 /* Larger than phone */
