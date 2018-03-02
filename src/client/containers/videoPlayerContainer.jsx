@@ -11,11 +11,11 @@ class VideoPlayerContainer extends Component {
   }
 
   render() {
-    console.log(this.props.videos)
+    const index = this.props.mainVideo
     return (
       <VideoPlayer
         {...this.props}
-        video={this.props.videos[0]}
+        video={this.props.videos[index]}
       />
     );
   }

@@ -11,7 +11,7 @@ class VideoListContainer extends Component {
   }
 
   render() {
-    const test = this.props.videos.map(function(item, index) {
+    const test = this.props.listVideos.map(function(item, index) {
       return <VideoListEntry key={index} index={index} video={item}/>
     })
 

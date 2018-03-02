@@ -32,13 +32,23 @@ const video = (store, action) => {
     newState3.current = action.payload;
     return newState3;
 
+  case 'IMPORT_LIST_VIDEOS' :
+    let newState5 = Object.assign({}, store);
+    newState5.listVideos = action.payload;
+    return newState5;
+
   case 'TOGGLE_SEARCH_RESULTS' :
     let newState2 = Object.assign({}, store);
     newState2.searched = action.payload;
     return newState2;
 
+  case 'CHANGE_MAIN_VIDEO' :
+    let newState4 = Object.assign({}, store);
+    newState4.mainVideo = action.payload;
+    return newState4;
+
   default:
-    return store || { current: [], searched: false };
+    return store || { current: [], listVideos:[], searched: false, mainVideo: 0 };
   }
 };
 

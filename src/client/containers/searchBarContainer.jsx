@@ -22,13 +22,19 @@ class Search extends Component {
     };
     axios.post('/search', options)
     .then((res) => {
+      let videoArray = res.data.slice();
       // console.log('back on front end ');
       // console.log(res.data[0].id.videoId);
       // console.log(res.data[0].snippet.thumbnails.default.url);
       // console.log(res.data[0].snippet.description);
       this.props.importVideos(res.data);
+      videoArray.splice(0, 1);
+      this.props.importListVideos(videoArray);
+      this.props.changeMainVideo(0);
     })
     .then(() => {
+      console.log(this.props.listVideos);
+      console.log(this.props.current)
       toggleSearchResults(true);
     })
     .catch((err) => {
