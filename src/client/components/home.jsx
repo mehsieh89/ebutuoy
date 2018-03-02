@@ -54,8 +54,6 @@ class Home extends Component {
     });
   }
 
-  handleOnChange(e) { this.setState({ title: e.target.value }); }
-
   render() {
     let isLoading = this.props.isLoading;
     let list = null;

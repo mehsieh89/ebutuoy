@@ -10,6 +10,7 @@ class Search extends Component {
     };
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   handleOnChange(e) { this.setState({ value: e.target.value }); }
@@ -45,28 +46,42 @@ class Search extends Component {
     })
     .then(() => {
       this.props.toggleSearchResults(true);
-      console.log(this.props.comments);
     })
     .catch((err) => {
       console.log(err);
     });
   }
 
+  handleOnClick() {
+    axios.get('/retrieveVideos')
+    .then((data) => {
+      console.log(data.data);
+    })
+  }
+
   render() {
     return (
-      <form onSubmit={this.handleSearch}>
-        <input
-          type="text"
-          value={this.state.value}
-          placeholder="Search"
-          onChange={this.handleOnChange}
-          className="textbox"
-        />
-        <input
-          type="submit"
-          value="Search"
-          className="submitbutton"/>
-      </form>
+      <div>
+        <form onSubmit={this.handleSearch}>
+          <input
+            type="text"
+            value={this.state.value}
+            placeholder="Search"
+            onChange={this.handleOnChange}
+            className="textbox"
+          />
+          <input
+            type="submit"
+            value="Search"
+            className="submitbutton"/>
+          <button
+            className={custom.videoButton}
+            type="button"
+            onClick={this.handleOnClick}>
+            Past Videos
+          </button>
+        </form>
+      </div>
     );
   }
 }

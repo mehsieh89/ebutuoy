@@ -12,27 +12,37 @@ class VideoListContainer extends Component {
   }
 
   handleOnClick(index) {
+    const videoName = this.props.videos[index].snippet.title
+    // let videoName = this.props.videos[index]
     let videoArray = this.props.videos.slice();
     videoArray.splice(index, 1);
     this.props.changeSkipIndex(index);
     this.props.changeMainVideo(index);
     let options = {
-      id: this.props.videos[index].id.videoId
+      id: this.props.videos[index].id.videoId,
+      name: videoName
     }
     axios.post('/videoInfo', options)
       .then((data) => {
         this.props.changeMainVideoInfo(data.data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+    .catch((err) => {
+      console.log(err);
+    });
     axios.post('/videoComments', options)
       .then((resp) => {
         this.props.importComments(resp.data);
       })
-      .catch((err) => {
-        console.log(err);
+    .catch((err) => {
+      console.log(err);
+    })
+    axios.post('/databaseAdd', options)
+      .then((data) => {
+        console.log(data);
       })
+    .catch((err) => {
+      console.log(err);
+    })
   }
 
   render() {
