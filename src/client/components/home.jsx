@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { changeName, importVideos, toggleSearchResults, changeMainVideo,
         changeSkipIndex, changeMainVideoInfo, importComments, } from "../actions";
-// import SearchBar from 'material-ui-search-bar';
-import SearchBarContainer from '../containers/searchBarContainer.jsx';
+import SearchBarContainer from "../containers/searchBarContainer.jsx";
 import VideoPlayerContainer from '../containers/videoPlayerContainer.jsx';
 import VideoListContainer from '../containers/videoListContainer.jsx';
 import axios from 'axios';
@@ -13,7 +12,6 @@ import "../styles/normalize.css";
 import "../styles/raleway.css";
 import skeleton from "../styles/skeleton.css";
 import custom from "../styles/custom.css";
-// import electrodePng from "../images/electrode.png";
 
 class Home extends Component {
   constructor(props) {
@@ -68,11 +66,6 @@ class Home extends Component {
         />
         list = <VideoListContainer
           {...this.props}
-          // addVideos={this.addVideos}
-          // videos={this.props.videos}
-          // searched={this.props.searched}
-          // toggleSearchResults={this.props.toggleSearchResults}
-          // importVideos={this.props.importVideos}
         />;
     }
     return (
@@ -85,11 +78,6 @@ class Home extends Component {
         <div className={custom.searchDiv}>
           <SearchBarContainer
             {...this.props}
-            // addVideos={this.addVideos}
-            // videos={this.props.videos}
-            // searched={this.props.searched}
-            // toggleSearchResults={this.props.toggleSearchResults}
-            // importVideos={this.props.importVideos}
           />
           <div className={custom.mainContainer}>
             {player}
