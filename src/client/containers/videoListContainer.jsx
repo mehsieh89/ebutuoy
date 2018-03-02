@@ -28,7 +28,7 @@ class VideoListContainer extends Component {
   render() {
     const more = {...this.props};
     const click = this.handleOnClick;
-    const test = this.props.videos.map(function(item, index) {
+    const videoList = this.props.videos.map(function(item, index) {
       if (index === more.skipIndex) {
         return;
       } else {
@@ -46,7 +46,7 @@ class VideoListContainer extends Component {
     if (this.props.searched) {
       return (
         <div className={custom.videoList}>
-          {test}
+          {videoList}
         </div>
       );
     } else {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import custom from "../styles/custom.css";
+import CommentsContainer from "../containers/commentsContainer.jsx";
 
 class VideoPlayer extends Component {
   constructor(props) {
@@ -10,8 +11,6 @@ class VideoPlayer extends Component {
   }
 
   render() {
-    console.log(this.props.comments[0]);
-    console.log('video player');
     const video = this.props.video;
     const mainVideoInfo = this.props.mainVideoInfo;
     const comments = this.props.comments;
@@ -24,7 +23,9 @@ class VideoPlayer extends Component {
           <div> {mainVideoInfo.likes} </div>
           <div> {mainVideoInfo.dislikes} </div>
         </div>
-        <div className={custom.MainPLayerComments}> {comments[0].user} </div>
+        <CommentsContainer
+          {...this.props}
+        />
       </div>
     );
   }
