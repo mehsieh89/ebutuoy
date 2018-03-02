@@ -101,6 +101,9 @@ app.post('/videoInfo', (req, res) => {
     res.send(count);
     res.end();
   })
+  .catch((err) => {
+    console.log(err);
+  });
 })
 
 app.post('/videoComments', (req, res) => {
@@ -116,6 +119,9 @@ app.post('/videoComments', (req, res) => {
     res.send(comments);
     res.end();
   })
+  .catch((err) => {
+    console.log(err);
+  });
 })
 
 module.exports = function electrodeServer(userConfig, callback) {

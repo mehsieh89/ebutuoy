@@ -20,9 +20,19 @@ class VideoListContainer extends Component {
       id: this.props.videos[index].id.videoId
     }
     axios.post('/videoInfo', options)
-    .then((data) => {
-      this.props.changeMainVideoInfo(data.data);
-    })
+      .then((data) => {
+        this.props.changeMainVideoInfo(data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios.post('/videoComments', options)
+      .then((resp) => {
+        this.props.importComments(resp.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
   render() {
