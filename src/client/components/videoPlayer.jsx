@@ -11,10 +11,14 @@ class VideoPlayer extends Component {
 
   render() {
     const video = this.props.video;
+    const mainVideoInfo = this.props.mainVideoInfo
     return (
       <div className={custom.videoPlayer}>
-        <div> {video.snippet.title} </div>
         <iframe className={custom.iframe} src={'https://www.youtube.com/embed/' + video.id.videoId} allowFullScreen></iframe>
+        <div> {video.snippet.title} </div>
+        <div> {video.snippet.description} </div>
+        <div> {mainVideoInfo.likes} </div>
+        <div> {mainVideoInfo.dislikes} </div>
       </div>
     );
   }

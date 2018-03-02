@@ -17,6 +17,10 @@ function createReduxStore(req, match) { // eslint-disable-line
       skipIndex: 0,
       searched: false,
       mainVideo: 0,
+      mainVideoInfo: {
+        likes: 0,
+        dislikes: 0
+      },
     },
   };
 

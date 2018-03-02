@@ -47,8 +47,22 @@ const video = (store, action) => {
     newState4.mainVideo = action.payload;
     return newState4;
 
+  case 'CHANGE_MAIN_VIDEO_INFO' :
+    let newState6 = Object.assign({}, store);
+    newState6.mainVideoInfo = action.payload;
+    return newState6;
+
   default:
-    return store || { current: [], skipIndex: 0, searched: false, mainVideo: 0 };
+    return store || {
+      current: [],
+      skipIndex: 0,
+      searched: false,
+      mainVideo: 0,
+      mainVideoInfo: {
+        likes: 0,
+        dislikes: 0
+      },
+    };
   }
 };
 

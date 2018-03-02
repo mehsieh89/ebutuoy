@@ -32,3 +32,10 @@ export const changeMainVideo = (index) => {
     payload: index
   };
 }
+
+export const changeMainVideoInfo = (obj) => {
+  return {
+    type: "CHANGE_MAIN_VIDEO_INFO",
+    payload: obj
+  };
+}

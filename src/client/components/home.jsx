@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { changeName, importVideos, toggleSearchResults, changeMainVideo,
-        changeSkipIndex } from "../actions";
+        changeSkipIndex, changeMainVideoInfo } from "../actions";
 // import SearchBar from 'material-ui-search-bar';
 import SearchBarContainer from '../containers/searchBarContainer.jsx';
 import VideoPlayerContainer from '../containers/videoPlayerContainer.jsx';
@@ -97,6 +97,7 @@ const mapStateToProps = state => {
     skipIndex: state.video.skipIndex,
     searched: state.video.searched,
     mainVideo: state.video.mainVideo,
+    mainVideoInfo: state.video.mainVideoInfo,
   };
 };
 
@@ -107,6 +108,7 @@ const matchDispatchToProps = (dispatch) => {
     changeSkipIndex: changeSkipIndex,
     toggleSearchResults: toggleSearchResults,
     changeMainVideo: changeMainVideo,
+    changeMainVideoInfo: changeMainVideoInfo,
   }, dispatch);
 };
 

@@ -16,6 +16,7 @@ class VideoPlayerContainer extends Component {
       <VideoPlayer
         {...this.props}
         video={this.props.videos[index]}
+        mainVideoInfo={this.props.mainVideoInfo}
       />
     );
   }

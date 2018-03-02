@@ -13,13 +13,16 @@ class VideoListContainer extends Component {
 
   handleOnClick(index) {
     let videoArray = this.props.videos.slice();
-    // console.log('back on front end ');
-    // console.log(res.data[0].id.videoId);
-    // console.log(res.data[0].snippet.thumbnails.default.url);
-    // console.log(res.data[0].snippet.description);
     videoArray.splice(index, 1);
     this.props.changeSkipIndex(index);
     this.props.changeMainVideo(index);
+    let options = {
+      id: this.props.videos[index].id.videoId
+    }
+    axios.post('/videoInfo', options)
+    .then((data) => {
+      this.props.changeMainVideoInfo(data.data);
+    })
   }
 
   render() {
