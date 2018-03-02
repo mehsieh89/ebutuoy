@@ -16,7 +16,6 @@ class Search extends Component {
 
   handleSearch(e) {
     e.preventDefault();
-    const { importVideos, toggleSearchResults } = this.props;
     let options = {
       value: this.state.value,
     };
@@ -45,7 +44,7 @@ class Search extends Component {
       this.props.changeMainVideo(0);
     })
     .then(() => {
-      toggleSearchResults(true);
+      this.props.toggleSearchResults(true);
       console.log(this.props.comments);
     })
     .catch((err) => {

@@ -37,6 +37,16 @@
   letter-spacing: normal;
 }
 
+.appHeader {
+  font-family: "HelveticaNeue";
+  background-color: #C7D8C6;
+  height: 100px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+}
+
 .commentBox {
   width: 640px;
   margin-top: 5px;

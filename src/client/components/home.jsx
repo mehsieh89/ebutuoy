@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { changeName, importVideos, toggleSearchResults, changeMainVideo,
-        changeSkipIndex, changeMainVideoInfo, importComments } from "../actions";
+        changeSkipIndex, changeMainVideoInfo, importComments, } from "../actions";
 // import SearchBar from 'material-ui-search-bar';
 import SearchBarContainer from '../containers/searchBarContainer.jsx';
 import VideoPlayerContainer from '../containers/videoPlayerContainer.jsx';
@@ -19,37 +19,47 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
+      value: "cute puppy",
     }
-    this.handleOnClick = this.handleOnClick.bind(this);
-    this.handleOnClick2 = this.handleOnClick2.bind(this);
   }
 
-  // addVideos(array) {
-  //   this.setState({
-  //     videos: array
-  //   })
-  // }
-
-  handleOnClick() {
-    // this.props.toggleAboutDialog();
-    axios.get('/test')
+  componentDidMount() {
+    let options = {
+      value: this.state.value,
+    };
+    axios.post('/search', options)
     .then((res) => {
-      console.log(res.data);
+      let videoArray = res.data.slice();
+      this.props.importVideos(res.data);
+      videoArray.splice(0, 1);
+      this.props.changeSkipIndex(0);
+      let options = {
+        id: res.data[0].id.videoId
+      }
+      axios.post('/videoInfo', options)
+      .then((data) => {
+        this.props.changeMainVideoInfo(data.data);
+      })
+      axios.post('./videoComments', options)
+      .then((resp) => {
+        this.props.importComments(resp.data);
+      })
+    })
+    .then(() => {
+      this.props.changeMainVideo(0);
+    })
+    .then(() => {
+      this.props.toggleSearchResults(true);
     })
     .catch((err) => {
       console.log(err);
     });
   }
 
-  handleOnClick2() {
-    const { changeName } = this.props;
-    changeName('dkjawbdjhadjhavda');
-  }
-
   handleOnChange(e) { this.setState({ title: e.target.value }); }
 
   render() {
+    let isLoading = this.props.isLoading;
     let list = null;
     let player = null;
     if (this.props.searched) {
@@ -66,18 +76,23 @@ class Home extends Component {
         />;
     }
     return (
-      <div className={custom.searchDiv}>
-        <SearchBarContainer
-          {...this.props}
-          // addVideos={this.addVideos}
-          // videos={this.props.videos}
-          // searched={this.props.searched}
-          // toggleSearchResults={this.props.toggleSearchResults}
-          // importVideos={this.props.importVideos}
-        />
-        <div className={custom.mainContainer}>
-          {player}
-          {list}
+      <div>
+        <header className={custom.appHeader}>
+          Ebutuoy
+        </header>
+        <div className={custom.searchDiv}>
+          <SearchBarContainer
+            {...this.props}
+            // addVideos={this.addVideos}
+            // videos={this.props.videos}
+            // searched={this.props.searched}
+            // toggleSearchResults={this.props.toggleSearchResults}
+            // importVideos={this.props.importVideos}
+          />
+          <div className={custom.mainContainer}>
+            {player}
+            {list}
+          </div>
         </div>
       </div>
     );

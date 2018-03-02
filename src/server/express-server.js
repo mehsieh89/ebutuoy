@@ -9,7 +9,7 @@ const _ = require("lodash");
 const defaultConfig = require("electrode-confippet").config;
 const Confippet = require("electrode-confippet");
 const Ebutuoy = require("../db/index.js");
-import axios from 'axios';
+const axios = require('axios');
 const config = require('../../config/index.js');
 
 app.use(bodyParser.json());
