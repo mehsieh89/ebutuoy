@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { changeName, importVideos, toggleSearchResults, changeMainVideo,
         changeSkipIndex, changeMainVideoInfo, importComments, } from "../actions";
-import SearchBarContainer from "../containers/searchBarContainer.jsx";
+import SearchBarContainer from "../containers/searchbarcontainer.jsx";
 import VideoPlayerContainer from '../containers/videoPlayerContainer.jsx';
 import VideoListContainer from '../containers/videoListContainer.jsx';
 import axios from 'axios';
