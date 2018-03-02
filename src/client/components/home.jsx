@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { changeName, importVideos, toggleSearchResults, changeMainVideo,
         changeSkipIndex, changeMainVideoInfo, importComments, } from "../actions";
 // import SearchBar from 'material-ui-search-bar';
-import SearchBarContainer from '../containers/searchBarContainer.jsx';
+const SearchBarContainer require('../containers/searchBarContainer.jsx');
 import VideoPlayerContainer from '../containers/videoPlayerContainer.jsx';
 import VideoListContainer from '../containers/videoListContainer.jsx';
 import axios from 'axios';
