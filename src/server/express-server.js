@@ -36,7 +36,6 @@ const setStaticPaths = function() {
     express.static(
       path.join(
         __dirname,
-        "../",
         defaultConfig.$("plugins.electrodeStaticPaths.options.pathPrefix")
       )
     )
