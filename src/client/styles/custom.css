@@ -30,10 +30,18 @@
 .docs-example h6 {
   margin-bottom: 1rem;
 }
+
 .heading-font-size {
   font-size: 1.2rem;
   color: #999;
   letter-spacing: normal;
+}
+
+.commentBox {
+  width: 640px;
+  margin-top: 5px;
+  border: 2px solid black;
+  text-align: left;
 }
 
 .iframe {
@@ -56,6 +64,7 @@
 }
 
 .mainPlayerInfo {
+  text-align: left;
   border: 2px solid black;
   margin-top: 25px;
 }

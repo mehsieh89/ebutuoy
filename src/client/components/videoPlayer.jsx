@@ -20,8 +20,8 @@ class VideoPlayer extends Component {
         <div className={custom.mainPlayerInfo}>
           <div> {video.snippet.title} </div>
           <div> {video.snippet.description} </div>
-          <div> {mainVideoInfo.likes} </div>
-          <div> {mainVideoInfo.dislikes} </div>
+          <div> likes: {mainVideoInfo.likes} </div>
+          <div> dislikes: {mainVideoInfo.dislikes} </div>
         </div>
         <CommentsContainer
           {...this.props}
