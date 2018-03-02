@@ -11,9 +11,6 @@
   "contributors": [],
   "files": [
     "server",
-    "db",
-    "client",
-    "components",
     "src",
     "lib",
     "dist"
