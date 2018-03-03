@@ -8,7 +8,7 @@ const path = require("path");
 const _ = require("lodash");
 const defaultConfig = require("electrode-confippet").config;
 const Confippet = require("electrode-confippet");
-const Ebutuoy = require("../db/index.js");
+// const Ebutuoy = require("../db/index.js");
 const axios = require('axios');
 const config = require('../../config/index.js');
 
@@ -70,22 +70,22 @@ const startServer = () =>
     });
   });
 
-app.post('/databaseAdd', (req, res) => {
-  console.log(req.body.name)
-  let videoName = new Ebutuoy ({
-    name: req.body.name
-  })
-  videoName.save()
-  res.end();
- })
-
-app.get('/retrieveVideos', (req, res) => {
-  Ebutuoy.find({}, function(err, data) {
-    if (err) throw err;
-    res.send(data);
-    res.end()
-  })
-})
+// app.post('/databaseAdd', (req, res) => {
+//   console.log(req.body.name)
+//   let videoName = new Ebutuoy ({
+//     name: req.body.name
+//   })
+//   videoName.save()
+//   res.end();
+//  })
+//
+// app.get('/retrieveVideos', (req, res) => {
+//   Ebutuoy.find({}, function(err, data) {
+//     if (err) throw err;
+//     res.send(data);
+//     res.end()
+//   })
+// })
 
 app.post('/search', (req, res) => {
   axios.get(YOUTUBE_BASE_URL + YOUTUBE_SEARCH_URL_1 + req.body.value + YOUTUBE_SEARCH_URL_2)
