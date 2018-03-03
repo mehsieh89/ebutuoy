@@ -8,7 +8,7 @@ const path = require("path");
 const _ = require("lodash");
 const defaultConfig = require("electrode-confippet").config;
 const Confippet = require("electrode-confippet");
-// const Ebutuoy = require("../db/index.js");
+const Ebutuoy = require("./databaseIndex.js");
 const axios = require('axios');
 const config = require('../../config/index.js');
 
