@@ -31,16 +31,16 @@ const loadConfigs = function(userConfig) {
   return Confippet.util.merge(defaultConfig, userConfig);
 };
 
-const setStaticPaths = function() {
-  app.use(
-    express.static(
-      path.join(
-        __dirname,
-        defaultConfig.$("plugins.electrodeStaticPaths.options.pathPrefix")
-      )
-    )
-  );
-};
+// const setStaticPaths = function() {
+//   app.use(
+//     express.static(
+//       path.join(
+//         __dirname,
+//         defaultConfig.$("plugins.electrodeStaticPaths.options.pathPrefix")
+//       )
+//     )
+//   );
+// };
 
 const setRouteHandler = () =>
   new Promise((resolve, reject) => {
@@ -134,7 +134,7 @@ app.post('/videoComments', (req, res) => {
 module.exports = function electrodeServer(userConfig, callback) {
   const promise = Promise.resolve(userConfig)
     .then(loadConfigs)
-    .then(setStaticPaths)
+    // .then(setStaticPaths)
     .then(setRouteHandler)
     .then(startServer);
 
